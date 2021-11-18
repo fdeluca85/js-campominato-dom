@@ -55,12 +55,13 @@ function play() {
                 container.appendChild(clicked);
                 clicked.innerHTML = i;
                 clicked.addEventListener('click', function() {
-                    if(arrayBombs.includes(this.textContent)){
+                    if(arrayBombs.includes(parseInt(this.textContent))){
                         this.classList.add('red');                        
                     }else{
                         this.classList.add('blue');
                     }
-                    console.log(this);
+                    // console.log(this);
+                    console.log(this.textContent);
                     // this.classList.add('blue');
                 });
             }    
@@ -81,8 +82,13 @@ function play() {
             container.appendChild(clicked);
             clicked.innerHTML = i;
             clicked.addEventListener('click', function() {
+                if(arrayBombs.includes(parseInt(this.textContent))){
+                    this.classList.add('red');                        
+                }else{
+                    this.classList.add('blue');
+                }
                 console.log(this);
-                this.classList.add('blue');
+            
             });
         
         }
@@ -105,8 +111,13 @@ function play() {
             container.appendChild(clicked);
         
             clicked.addEventListener('click', function() {
+                if(arrayBombs.includes(parseInt(this.textContent))){
+                    this.classList.add('red');
+                    alert("BOOM!! Hai trovato la bomba, hai perso")                        
+                }else{
+                    this.classList.add('blue');
+                }
                 console.log(this);
-                this.classList.add('blue');
 
             });       
         
