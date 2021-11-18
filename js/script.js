@@ -10,9 +10,21 @@ document.getElementById('play').addEventListener('click', function(){
 });
 
 
+
 const bombsNumber = 16;
 const arrayBombs = [];
 
+
+// funzione per  generare le bombe in base alla difficoltà
+function generateBombs(maxNumber){
+    while(arrayBombs.length < bombsNumber){
+        const numeroRandom = Math.floor(Math.random()* maxNumber)+1;
+        if(!arrayBombs.includes(numeroRandom)){
+            arrayBombs.push(numeroRandom)
+        }
+    }
+    console.log(arrayBombs);
+}
 
 // al click sul pulsante play viene generata la griglia in base alla difficoltà scelta
 function play() {
@@ -34,19 +46,8 @@ function play() {
             
                 return node;
             }
-            generateBombs();  
-
-            function generateBombs(){
-    
-                while(arrayBombs.length < bombsNumber){
-                    const numeroRandom = Math.floor(Math.random()* 100)+1;
-                    if(!arrayBombs.includes(numeroRandom)){
-                        arrayBombs.push(numeroRandom)
-                    }
-                }
-                console.log(arrayBombs);
-            }
-
+            // generatore bombe
+            generateBombs(100); 
 
             for(let i = 1; i <= 100; i++){            
                 const clicked = levEasy();
@@ -67,20 +68,8 @@ function play() {
         
             return node;
         }
-        generateBombs();  
-
-        function generateBombs(){
-    
-            while(arrayBombs.length < bombsNumber){
-                const numeroRandom = Math.floor(Math.random()* 81)+1;
-                if(!arrayBombs.includes(numeroRandom)){
-                    arrayBombs.push(numeroRandom)
-                }
-            }
-            console.log(arrayBombs);
-        }
-
-
+        // generatore bombe
+        generateBombs(81); 
         for(let i = 1; i <= 81; i++){        
             const clicked = levHard();
             container.appendChild(clicked);
@@ -100,19 +89,10 @@ function play() {
             node.className = 'square crazy';
         
             return node;
-        }        
-        generateBombs();  
-
-        function generateBombs(){
-    
-            while(arrayBombs.length < bombsNumber){
-                const numeroRandom = Math.floor(Math.random()* 49)+1;
-                if(!arrayBombs.includes(numeroRandom)){
-                    arrayBombs.push(numeroRandom)
-                }
-            }
-            console.log(arrayBombs);
         }
+        // generatore bombe
+        generateBombs(49); 
+
         for(let i = 1; i <= 49; i++){        
             const clicked = levCrazy();
             clicked.innerHTML = i;
@@ -129,113 +109,4 @@ function play() {
     }
      
 }
-
-
-
-// generateBombs();  
-
-// function generateBombs(){
-    
-//     while(arrayBombs.length < bombsNumber){
-//         const numeroRandom = Math.floor(Math.random()* 49)+1;
-//         if(!arrayBombs.includes(numeroRandom)){
-//             arrayBombs.push(numeroRandom)
-//         }
-//     }
-//     console.log(arrayBombs);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const container = document.querySelector(".container");
-
-// let items= '';
-
-
-//     const levEasy = function () {
-//         const node = document.createElement('div');
-//         node.className = 'square easy';
-    
-//         return node;
-//     }
-    
-//     for(let i = 1; i <= 100; i++){
-    
-//         const clicked = levEasy();
-//         container.appendChild(clicked);
-//         clicked.innerHTML = i;
-//         clicked.addEventListener('click', function() {
-//             console.log(this);
-//             this.classList.add('blue');
-//         });
-//     }
-
-
-
-
-//     const levHard = function () {
-//         const node = document.createElement('div');
-//         node.className = 'square hard';
-    
-//         return node;
-//     }
-    
-//     for(let i = 1; i <= 81; i++){
-    
-//         const clicked = levHard();
-//         container.appendChild(clicked);
-//         clicked.innerHTML = i;
-//         clicked.addEventListener('click', function() {
-//             console.log(this);
-//             this.classList.add('blue');
-//         });
-    
-//     }
-
-
-//     const levCrazy = function () {
-//         const node = document.createElement('div');
-//         node.className = 'square crazy';
-    
-//         return node;
-//     }
-    
-//     for(let i = 1; i <= 49; i++){
-    
-//         const clicked = levCrazy();
-//         clicked.innerHTML = i;
-//         container.appendChild(clicked);
-    
-//         clicked.addEventListener('click', function() {
-//             console.log(this);
-//             this.classList.add('blue');
-//         });
-    
-//     }
 
