@@ -19,8 +19,10 @@ function incrementClick() {
     updateDisplay(++counterVal);
 }
 function updateDisplay(val) {
-    document.getElementById("counter-label").innerHTML = val-1;
+    document.getElementById("counter-label").innerHTML = val;
 }
+
+
 // funzione per  generare le bombe in base alla difficoltà
 function generateBombs(maxNumber){
     while(arrayBombs.length < bombsNumber){
@@ -34,12 +36,14 @@ function generateBombs(maxNumber){
 }
 // al click sul pulsante play viene generata la griglia in base alla difficoltà scelta
 function play() {
-    document.querySelector(".container").innerHTML = ""; //pulizia griglia
+    document.querySelector(".container").innerHTML = "";
+    document.getElementById("counter-label").innerHTML = counterVal = 0;
 
+    //pulizia griglia e punteggio
     const container = document.querySelector(".container");
 
     const levelSelected = parseInt(document.getElementById('level').value);
-    console.log(levelSelected);
+    // console.log(levelSelected);
 
     // let items= '';
 
@@ -62,15 +66,15 @@ function play() {
                 container.appendChild(clicked);
                 clicked.innerHTML = i;
                 clicked.addEventListener('click', function() {
-                    incrementClick();
                     if(arrayBombs.includes(parseInt(this.textContent))){
                         this.classList.add('red');
-                        alert("BOOM! Hai trovato la bomba! ");               
+                        alert("BOOM! Hai trovato la bomba! ");                                      
                     }else{
+                        incrementClick();
                         this.classList.add('blue');
                     }
                     // console.log(this);
-                    console.log(this.textContent);
+                    // console.log(this.textContent);
                     // this.classList.add('blue');
                 });
             }    
@@ -91,14 +95,14 @@ function play() {
             container.appendChild(clicked);
             clicked.innerHTML = i;
             clicked.addEventListener('click', function() {
-                incrementClick();
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
-                    alert("BOOM!! Hai trovato la bomba!");                        
+                    alert("BOOM!! Hai trovato la bomba!");                                           
                 }else{
+                    incrementClick();
                     this.classList.add('blue');
                 }
-                console.log(this);
+                // console.log(this);
             
             });
         
@@ -122,14 +126,15 @@ function play() {
             container.appendChild(clicked);
         
             clicked.addEventListener('click', function() {
-                incrementClick();
+                
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
                     alert("BOOM!! Hai trovato la bomba!");                        
                 }else{
+                    incrementClick();
                     this.classList.add('blue');
                 }
-                console.log(this);
+                // console.log(this);
 
             });       
         
