@@ -56,7 +56,8 @@ function play() {
                 clicked.innerHTML = i;
                 clicked.addEventListener('click', function() {
                     if(arrayBombs.includes(parseInt(this.textContent))){
-                        this.classList.add('red');                        
+                        this.classList.add('red');
+                        alert("BOOM! Hai trovato la bomba, hai perso");               
                     }else{
                         this.classList.add('blue');
                     }
@@ -83,7 +84,8 @@ function play() {
             clicked.innerHTML = i;
             clicked.addEventListener('click', function() {
                 if(arrayBombs.includes(parseInt(this.textContent))){
-                    this.classList.add('red');                        
+                    this.classList.add('red');
+                    alert("BOOM!! Hai trovato la bomba, hai perso");                        
                 }else{
                     this.classList.add('blue');
                 }
@@ -113,7 +115,7 @@ function play() {
             clicked.addEventListener('click', function() {
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
-                    alert("BOOM!! Hai trovato la bomba, hai perso")                        
+                    alert("BOOM!! Hai trovato la bomba, hai perso");                        
                 }else{
                     this.classList.add('blue');
                 }
