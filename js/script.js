@@ -24,10 +24,11 @@ function generateBombs(maxNumber){
         }
     }
     console.log(arrayBombs);
+    return arrayBombs
 }
-
 // al click sul pulsante play viene generata la griglia in base alla difficoltà scelta
 function play() {
+    document.querySelector(".container").innerHTML = ""; //pulizia griglia
 
     const container = document.querySelector(".container");
 
@@ -54,8 +55,13 @@ function play() {
                 container.appendChild(clicked);
                 clicked.innerHTML = i;
                 clicked.addEventListener('click', function() {
+                    if(arrayBombs.includes([i])){
+                        this.classList.add('red');                        
+                    }else{
+                        this.classList.add('blue');
+                    }
                     console.log(this);
-                    this.classList.add('blue');
+                    // this.classList.add('blue');
                 });
             }    
             break;
@@ -101,12 +107,10 @@ function play() {
             clicked.addEventListener('click', function() {
                 console.log(this);
                 this.classList.add('blue');
-            });
 
-        
+            });       
         
         }
     }
      
 }
-
