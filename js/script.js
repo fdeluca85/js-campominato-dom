@@ -19,7 +19,7 @@ function incrementClick() {
     updateDisplay(++counterVal);
 }
 function updateDisplay(val) {
-    document.getElementById("counter-label").innerHTML = val;
+    document.getElementById("counter-label").innerHTML = val-1;
 }
 // funzione per  generare le bombe in base alla difficoltà
 function generateBombs(maxNumber){
