@@ -55,7 +55,7 @@ function play() {
                 container.appendChild(clicked);
                 clicked.innerHTML = i;
                 clicked.addEventListener('click', function() {
-                    if(arrayBombs.includes([i])){
+                    if(this.innerHTML.includes(arrayBombs)){
                         this.classList.add('red');                        
                     }else{
                         this.classList.add('blue');
