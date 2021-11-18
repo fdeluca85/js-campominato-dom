@@ -4,14 +4,24 @@
     box-sizing: border-box;
 }
 body{
-    background-color: lightgray;
+    /* background-color: lightgray; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+header{
+    height: 100px;
+    padding: 20px;
+}
 main{
-    background-color: palegreen;
+    background-color: #7fffd4;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
-
+h1{
+    text-align: center;
+}
 .container{
     background-color: lightgray;
     width: 600px;

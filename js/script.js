@@ -9,6 +9,12 @@ document.getElementById('play').addEventListener('click', function(){
     play();
 });
 
+
+const bombsNumber = 16;
+const arrayBombs = [];
+
+
+// al click sul pulsante play viene generata la griglia in base alla difficoltà scelta
 function play() {
 
     const container = document.querySelector(".container");
@@ -18,17 +24,17 @@ function play() {
 
     // let items= '';
 
+    // scelta difficoltà
     switch(levelSelected){
         case 1:
+            // creazione griglia facile
             const levEasy = function () {
                 const node = document.createElement('div');
                 node.className = 'square easy';
             
                 return node;
-            }
-            
-            for(let i = 1; i <= 100; i++){
-            
+            }            
+            for(let i = 1; i <= 100; i++){            
                 const clicked = levEasy();
                 container.appendChild(clicked);
                 clicked.innerHTML = i;
@@ -38,16 +44,16 @@ function play() {
                 });
             }    
             break;
+
         case 2: 
+            // ceazione griglia difficile
         const levHard = function () {
             const node = document.createElement('div');
             node.className = 'square hard';
         
             return node;
-        }
-        
-        for(let i = 1; i <= 81; i++){
-        
+        }        
+        for(let i = 1; i <= 81; i++){        
             const clicked = levHard();
             container.appendChild(clicked);
             clicked.innerHTML = i;
@@ -58,16 +64,16 @@ function play() {
         
         }
             break;
+
         case 3: 
+            // creazione griglia impossibile
         const levCrazy = function () {
             const node = document.createElement('div');
             node.className = 'square crazy';
         
             return node;
-        }
-        
-        for(let i = 1; i <= 49; i++){
-        
+        }        
+        for(let i = 1; i <= 49; i++){        
             const clicked = levCrazy();
             clicked.innerHTML = i;
             container.appendChild(clicked);
@@ -79,31 +85,23 @@ function play() {
         
         }
     }
-
-    
-        
-        
-        
-        
-            
-        
-        
-            
-
-
-
-
-
-
-
-
-
+     
 }
 
 
 
+generateBombs();  
 
-
+function generateBombs(){
+    
+    while(arrayBombs.length < bombsNumber){
+        const numeroRandom = Math.floor(Math.random()* 100)+1;
+        if(!arrayBombs.includes(numeroRandom)){
+            arrayBombs.push(numeroRandom)
+        }
+    }
+    console.log(arrayBombs);
+}
 
 
 
