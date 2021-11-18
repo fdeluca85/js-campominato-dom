@@ -33,7 +33,21 @@ function play() {
                 node.className = 'square easy';
             
                 return node;
-            }            
+            }
+            generateBombs();  
+
+            function generateBombs(){
+    
+                while(arrayBombs.length < bombsNumber){
+                    const numeroRandom = Math.floor(Math.random()* 100)+1;
+                    if(!arrayBombs.includes(numeroRandom)){
+                        arrayBombs.push(numeroRandom)
+                    }
+                }
+                console.log(arrayBombs);
+            }
+
+
             for(let i = 1; i <= 100; i++){            
                 const clicked = levEasy();
                 container.appendChild(clicked);
@@ -52,7 +66,21 @@ function play() {
             node.className = 'square hard';
         
             return node;
-        }        
+        }
+        generateBombs();  
+
+        function generateBombs(){
+    
+            while(arrayBombs.length < bombsNumber){
+                const numeroRandom = Math.floor(Math.random()* 81)+1;
+                if(!arrayBombs.includes(numeroRandom)){
+                    arrayBombs.push(numeroRandom)
+                }
+            }
+            console.log(arrayBombs);
+        }
+
+
         for(let i = 1; i <= 81; i++){        
             const clicked = levHard();
             container.appendChild(clicked);
@@ -73,6 +101,18 @@ function play() {
         
             return node;
         }        
+        generateBombs();  
+
+        function generateBombs(){
+    
+            while(arrayBombs.length < bombsNumber){
+                const numeroRandom = Math.floor(Math.random()* 49)+1;
+                if(!arrayBombs.includes(numeroRandom)){
+                    arrayBombs.push(numeroRandom)
+                }
+            }
+            console.log(arrayBombs);
+        }
         for(let i = 1; i <= 49; i++){        
             const clicked = levCrazy();
             clicked.innerHTML = i;
@@ -82,6 +122,8 @@ function play() {
                 console.log(this);
                 this.classList.add('blue');
             });
+
+        
         
         }
     }
@@ -90,18 +132,18 @@ function play() {
 
 
 
-generateBombs();  
+// generateBombs();  
 
-function generateBombs(){
+// function generateBombs(){
     
-    while(arrayBombs.length < bombsNumber){
-        const numeroRandom = Math.floor(Math.random()* 100)+1;
-        if(!arrayBombs.includes(numeroRandom)){
-            arrayBombs.push(numeroRandom)
-        }
-    }
-    console.log(arrayBombs);
-}
+//     while(arrayBombs.length < bombsNumber){
+//         const numeroRandom = Math.floor(Math.random()* 49)+1;
+//         if(!arrayBombs.includes(numeroRandom)){
+//             arrayBombs.push(numeroRandom)
+//         }
+//     }
+//     console.log(arrayBombs);
+// }
 
 
 
