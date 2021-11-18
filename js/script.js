@@ -14,7 +14,13 @@ document.getElementById('play').addEventListener('click', function(){
 const bombsNumber = 16;
 const arrayBombs = [];
 
-
+let counterVal = 0;
+function incrementClick() {
+    updateDisplay(++counterVal);
+}
+function updateDisplay(val) {
+    document.getElementById("counter-label").innerHTML = val;
+}
 // funzione per  generare le bombe in base alla difficoltà
 function generateBombs(maxNumber){
     while(arrayBombs.length < bombsNumber){
@@ -49,15 +55,17 @@ function play() {
             }
             // generatore bombe
             generateBombs(100); 
+            
 
             for(let i = 1; i <= 100; i++){            
                 const clicked = levEasy();
                 container.appendChild(clicked);
                 clicked.innerHTML = i;
                 clicked.addEventListener('click', function() {
+                    incrementClick();
                     if(arrayBombs.includes(parseInt(this.textContent))){
                         this.classList.add('red');
-                        alert("BOOM! Hai trovato la bomba, hai perso");               
+                        alert("BOOM! Hai trovato la bomba! ");               
                     }else{
                         this.classList.add('blue');
                     }
@@ -83,9 +91,10 @@ function play() {
             container.appendChild(clicked);
             clicked.innerHTML = i;
             clicked.addEventListener('click', function() {
+                incrementClick();
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
-                    alert("BOOM!! Hai trovato la bomba, hai perso");                        
+                    alert("BOOM!! Hai trovato la bomba!");                        
                 }else{
                     this.classList.add('blue');
                 }
@@ -113,9 +122,10 @@ function play() {
             container.appendChild(clicked);
         
             clicked.addEventListener('click', function() {
+                incrementClick();
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
-                    alert("BOOM!! Hai trovato la bomba, hai perso");                        
+                    alert("BOOM!! Hai trovato la bomba!");                        
                 }else{
                     this.classList.add('blue');
                 }
