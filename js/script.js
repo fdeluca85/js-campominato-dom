@@ -5,15 +5,14 @@
 // Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe. I numeri nella lista delle bombe non possono essere duplicati.
 // In seguito l'utente clicca su ogni cella: se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina, altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle. La partita termina quando il giocatore clicca su una bomba o raggiunge il numero massimo possibile di numeri consentiti. Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
+
+
 document.getElementById('play').addEventListener('click', function(){
     play();
 });
 
 
-
-const bombsNumber = 16;
-const arrayBombs = [];
-
+// funzione per creare il contaatore dei click
 let counterVal = 0;
 function incrementClick() {
     updateDisplay(++counterVal);
@@ -24,6 +23,9 @@ function updateDisplay(val) {
 
 
 // funzione per  generare le bombe in base alla difficoltà
+const bombsNumber = 16;
+const arrayBombs = [];
+
 function generateBombs(maxNumber){
     while(arrayBombs.length < bombsNumber){
         const numeroRandom = Math.floor(Math.random()* maxNumber)+1;
@@ -34,12 +36,15 @@ function generateBombs(maxNumber){
     console.log(arrayBombs);
     return arrayBombs
 }
+
+
 // al click sul pulsante play viene generata la griglia in base alla difficoltà scelta
 function play() {
+    //pulizia griglia e punteggio
     document.querySelector(".container").innerHTML = "";
     document.getElementById("counter-label").innerHTML = counterVal = 0;
 
-    //pulizia griglia e punteggio
+    
     const container = document.querySelector(".container");
 
     const levelSelected = parseInt(document.getElementById('level').value);
@@ -63,12 +68,14 @@ function play() {
 
             for(let i = 1; i <= 100; i++){            
                 const clicked = levEasy();
-                container.appendChild(clicked);
-                clicked.innerHTML = i;
+                container.appendChild(clicked);                
+
+                clicked.innerHTML = i;                
+
                 clicked.addEventListener('click', function() {
                     if(arrayBombs.includes(parseInt(this.textContent))){
                         this.classList.add('red');
-                        alert("BOOM! Hai trovato la bomba! ");                                      
+                        alert("BOOM! Hai trovato la bomba! Hai perso.");                                      
                     }else{
                         incrementClick();
                         this.classList.add('blue');
@@ -93,11 +100,13 @@ function play() {
         for(let i = 1; i <= 81; i++){        
             const clicked = levHard();
             container.appendChild(clicked);
+
             clicked.innerHTML = i;
+
             clicked.addEventListener('click', function() {
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
-                    alert("BOOM!! Hai trovato la bomba!");                                           
+                    alert("BOOM!! Hai trovato la bomba! Hai perso.");                                           
                 }else{
                     incrementClick();
                     this.classList.add('blue');
@@ -129,7 +138,7 @@ function play() {
                 
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
-                    alert("BOOM!! Hai trovato la bomba!");                        
+                    alert("BOOM!! Hai trovato la bomba! Hai perso.");                        
                 }else{
                     incrementClick();
                     this.classList.add('blue');
