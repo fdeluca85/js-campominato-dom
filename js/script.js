@@ -24,9 +24,10 @@ function updateDisplay(val) {
 
 // funzione per  generare le bombe in base alla difficoltà
 const bombsNumber = 16;
-const arrayBombs = [];
+
 
 function generateBombs(maxNumber){
+    const arrayBombs = [];
     while(arrayBombs.length < bombsNumber){
         const numeroRandom = Math.floor(Math.random()* maxNumber)+1;
         if(!arrayBombs.includes(numeroRandom)){

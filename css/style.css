@@ -33,7 +33,6 @@ h2{
 }
 
 .container{
-    background-color: lightgray;
     margin-bottom: 20px;
     width: 600px;
     height: 600px;
@@ -46,6 +45,8 @@ h2{
     clear: both;
 }
 .square{
+    background-color: lightgray;
+
     float: left;
     border: 1px solid black;
     cursor: pointer; 
