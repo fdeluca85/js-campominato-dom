@@ -75,7 +75,7 @@ function play() {
                 clicked.addEventListener('click', function() {
                     if(arrayBombs.includes(parseInt(this.textContent))){
                         this.classList.add('red');
-                        alert("BOOM! Hai trovato la bomba! Hai perso.");                                      
+                        alert("BOOM! Hai perso. Hai trovato la bomba dopo " + counterVal +  " tentativi");                                      
                     }else{
                         incrementClick();
                         this.classList.add('blue');
@@ -106,7 +106,7 @@ function play() {
             clicked.addEventListener('click', function() {
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
-                    alert("BOOM!! Hai trovato la bomba! Hai perso.");                                           
+                    alert("BOOM! Hai perso. Hai trovato la bomba dopo " + counterVal +  " tentativi");                                           
                 }else{
                     incrementClick();
                     this.classList.add('blue');
@@ -138,7 +138,7 @@ function play() {
                 
                 if(arrayBombs.includes(parseInt(this.textContent))){
                     this.classList.add('red');
-                    alert("BOOM!! Hai trovato la bomba! Hai perso.");                        
+                    alert("BOOM! Hai perso. Hai trovato la bomba dopo " + counterVal +  " tentativi");                        
                 }else{
                     incrementClick();
                     this.classList.add('blue');
